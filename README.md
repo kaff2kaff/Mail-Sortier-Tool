@@ -29,7 +29,9 @@ werden immer verschoben.
 
 Das Tool liest nur die Header. Mails bleiben also **ungelesen**, und es wird nichts gelöscht.
 
-## Einrichtung (einmalig, auf dem Mac)
+## Einrichtung am Mac (einmalig)
+
+> Kein Mac? Weiter unten steht die **Variante für das iPhone**.
 
 ### 1. Google-App-Passwort erstellen
 
@@ -94,6 +96,32 @@ launchctl load ~/Library/LaunchAgents/de.mailsortierer.plist
 
 Das Protokoll steht in `/tmp/mail-sortierer.log`. Zum Beenden:
 `launchctl unload ~/Library/LaunchAgents/de.mailsortierer.plist`
+
+## Variante ohne Mac: Einrichtung am iPhone (Google Apps Script)
+
+Diese Variante läuft **direkt in deinem Google-Konto**. Sie funktioniert auch, wenn kein
+Computer eingeschaltet ist, und lässt sich komplett in Safari auf dem iPhone einrichten.
+Der Code liegt in [`apps-script/Code.gs`](apps-script/Code.gs).
+
+1. **Code kopieren:** `apps-script/Code.gs` auf github.com öffnen (eingeloggt), auf das
+   Kopier-Symbol („Copy raw file“) tippen.
+2. In **Safari** <https://script.google.com> öffnen und mit deinem Google-Konto anmelden.
+   Tipp: Über **„aA“** in der Adressleiste **„Desktop-Website anfordern“** wählen, damit
+   alle Knöpfe sichtbar sind.
+3. **„Neues Projekt“** antippen, den vorhandenen Text im Editor komplett löschen und den
+   kopierten Code einfügen. Oben auf **💾 Speichern** tippen.
+4. Oben in der Funktionsauswahl **`testlauf`** wählen und auf **▶ Ausführen** tippen.
+   - Google fragt nach Berechtigungen: **„Berechtigungen prüfen“**, dann dein Konto wählen.
+   - Erscheint „Google hat diese App nicht überprüft“, auf **„Erweitert“** und dann
+     **„Zu Unbenanntes Projekt wechseln“** tippen und anschließend **„Zulassen“**.
+     Das ist normal, weil du das Skript selbst erstellt hast.
+5. Im **Ausführungsprotokoll** unten siehst du, welche Mails als Werbung erkannt würden.
+6. Passt die Auswahl: Funktion **`einrichten`** wählen und **▶ Ausführen**. Ab jetzt wird
+   alle 30 Minuten automatisch aufgeräumt.
+
+Weitere Funktionen: **`aufraeumen`** (sofort einmal verschieben) und **`stoppen`**
+(Automatik beenden). Whitelist, Blacklist und Schwelle stellst du ganz oben im Code
+im Block `EINSTELLUNGEN` ein.
 
 ## Einstellungen (`config.json`)
 
