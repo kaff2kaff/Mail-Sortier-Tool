@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Führt das Mail-Sortier-Tool alle 30 Minuten automatisch aus.
+  PFAD unten an den Ort anpassen, an dem der Ordner liegt, dann:
+    cp launchd/de.mailsortierer.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/de.mailsortierer.plist
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>de.mailsortierer</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/DEINNAME/Mail-Sortier-Tool/mail_sortierer.py</string>
+    <string>--apply</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>1800</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/tmp/mail-sortierer.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/mail-sortierer.log</string>
+</dict>
+</plist>

@@ -1,0 +1,24 @@
+{
+  "_hinweis": "Kopieren nach config.json und anpassen. Felder mit _ am Anfang werden ignoriert.",
+  "email": "deine.adresse@googlemail.com",
+
+  "threshold": 5,
+  "days": 7,
+  "use_gmail_promotions": true,
+  "source_folder": "INBOX",
+  "target_folder": "",
+
+  "_whitelist": "Absender/Domains, die NIE verschoben werden (z. B. Bank, Arbeit, Familie)",
+  "whitelist": [
+    "@meine-bank.de",
+    "chef@firma.de"
+  ],
+
+  "_blacklist": "Absender/Domains, die IMMER in den Spam wandern",
+  "blacklist": [
+    "@werbung-xyz.com"
+  ],
+
+  "extra_subject_keywords": [],
+  "extra_sender_patterns": []
+}
